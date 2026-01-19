@@ -28,6 +28,22 @@ html, body {
   position: relative;
 }
 
+/* ===== SMOOTH ENTRY (3s) ===== */
+.fade-entry {
+  animation: fadeSlideIn 3s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* YOUTUBE */
 .youtube-link {
   position: absolute;
@@ -175,7 +191,7 @@ pre#scriptText {
 </head>
 
 <body>
-<div class="container">
+<div class="container fade-entry">
 
   <a class="youtube-link" href="https://www.youtube.com/channel/UCEoYs6dYZCF2cc1sQF63i1g" target="_blank">
     <div class="youtube-avatar">
@@ -250,6 +266,14 @@ function showCopied() {
     copyBtn.textContent = "Copy";
   }, 2000);
 }
+
+/* REMOVE ENTRY ANIMATION AFTER 3s */
+setTimeout(() => {
+  const container = document.querySelector(".container");
+  if (container) {
+    container.classList.remove("fade-entry");
+  }
+}, 3000);
 </script>
 
 </body>
