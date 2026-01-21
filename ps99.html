@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adopt Me Script | CamScripter</title>
+<title>PS99 Script | CamScripter</title>
 
 <style>
 html, body {
@@ -29,30 +29,9 @@ body {
   text-align: center;
 }
 
-.youtube-link {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  display: flex;
-  gap: 8px;
-  text-decoration: none;
-}
-.youtube-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid #ec4899;
-}
-.youtube-name {
-  color: #ec4899;
-  font-weight: 700;
-  font-size: 14px;
-}
-
 .badge {
-  background: #3b0a24;
-  color: #ec4899;
+  background: #0a1e3b;
+  color: #3b82f6;
   padding: 6px 14px;
   border-radius: 999px;
   font-size: 12px;
@@ -63,7 +42,7 @@ h1 {
   font-size: clamp(26px, 6vw, 46px);
   font-weight: 800;
 }
-h1 span { color: #ec4899; }
+h1 span { color: #3b82f6; }
 
 p {
   max-width: 700px;
@@ -75,26 +54,19 @@ p {
   width: 100%;
   max-width: 760px;
   background: #111;
-  border: 1px solid #1f0a14;
+  border: 1px solid #0a1e3b;
   border-radius: 16px;
   padding: 16px;
 }
 
-.script-header {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 #copyBtn {
   width: 100%;
-  background: #ec4899;
-  color: #300017;
+  background: #3b82f6;
+  color: #001b3a;
   border: none;
   padding: 14px;
   border-radius: 12px;
   font-weight: 800;
-  cursor: pointer;
 }
 
 pre {
@@ -108,7 +80,7 @@ pre {
 
 #copied {
   margin-top: 10px;
-  color: #ec4899;
+  color: #3b82f6;
   font-weight: 600;
   display: none;
 }
@@ -120,26 +92,18 @@ pre {
 }
 .stat {
   background: #111;
-  border: 1px solid #1f0a14;
+  border: 1px solid #0a1e3b;
   border-radius: 14px;
   padding: 16px 22px;
   min-width: 140px;
 }
 .stat-value {
-  color: #ec4899;
+  color: #3b82f6;
   font-size: 24px;
   font-weight: 800;
 }
 .stat-label {
   color: #9ca3af;
-}
-
-@media (min-width: 768px) {
-  .script-header {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  #copyBtn { width: auto; padding: 10px 18px; }
 }
 </style>
 </head>
@@ -147,18 +111,14 @@ pre {
 <body>
 <div class="container">
 
-<div class="badge">● Online • Keyless • Adopt Me</div>
+<div class="badge">● Online • Keyless • PS99</div>
 
-<h1>Adopt Me <span>Script</span></h1>
-<p>Fast, safe and smooth Adopt Me script designed for farming and trading.</p>
+<h1>Pet Simulator 99 <span>Script</span></h1>
+<p>Optimized PS99 script for fast grinding, pets and diamonds.</p>
 
 <div class="script-box">
-  <div class="script-header">
-    <span>🐶 Adopt Me Script</span>
-    <button id="copyBtn">Copy Script</button>
-  </div>
-
-<pre id="scriptText">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/CamHub/refs/heads/main/AdoptMe"))()</pre>
+  <button id="copyBtn">Copy Script</button>
+<pre id="scriptText">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/BananaHub0/refs/heads/main/PetSimulator99V2"))()</pre>
 </div>
 
 <div id="copied">✓ Script copied</div>
