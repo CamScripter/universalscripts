@@ -6,101 +6,85 @@
 <title>CamScripter Hub</title>
 
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  background: #000;
-  font-family: Inter, Arial, sans-serif;
-  color: #e5e7eb;
+body{
+margin:0;
+background:#000;
+font-family:Inter,Arial;
+color:#fff;
+display:flex;
+flex-direction:column;
+align-items:center;
+min-height:100vh;
 }
 
-body {
-  opacity: 0;
-  animation: fadeIn 2s ease forwards;
-}
-@keyframes fadeIn { to { opacity: 1; } }
+body{opacity:0;animation:fade 2s forwards}
+@keyframes fade{to{opacity:1}}
 
-.container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 16px;
+.header{
+margin-top:40px;
+display:flex;
+align-items:center;
+gap:14px;
 }
-
-h1 {
-  font-size: clamp(28px, 6vw, 48px);
-  font-weight: 900;
+.header img{
+width:70px;height:70px;border-radius:50%;
+border:3px solid #22c55e;
 }
-h1 span { color: #22c55e; }
+.header h1{margin:0}
 
-p {
-  max-width: 600px;
-  color: #9ca3af;
-  margin: 12px 0 40px;
+.cards{
+margin-top:60px;
+display:flex;
+gap:24px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  width: 100%;
-  max-width: 760px;
+.card{
+width:260px;
+padding:24px;
+border-radius:20px;
+background:#111;
+text-align:center;
+text-decoration:none;
+color:white;
+border:1px solid #1f2937;
+transition:.2s;
 }
+.card:hover{transform:scale(1.05)}
 
-.card {
-  background: #111;
-  border: 1px solid #0f172a;
-  border-radius: 18px;
-  padding: 28px 20px;
-  text-decoration: none;
-  color: inherit;
-  transition: transform .2s ease, border-color .2s ease;
-}
-.card:hover {
-  transform: translateY(-6px);
-}
+.mm2{border-color:#22c55e}
+.adopt{border-color:#ec4899}
+.ps99{border-color:#3b82f6}
 
-.mm2 { border-color: #22c55e; }
-.adopt { border-color: #ec4899; }
-.ps99 { border-color: #3b82f6; }
-
-.card h2 {
-  margin: 0 0 6px;
-  font-size: 22px;
-}
-.card p {
-  font-size: 14px;
-}
-
+.card h2{margin:10px 0}
+.card p{color:#9ca3af;font-size:14px}
 </style>
 </head>
 
 <body>
-<div class="container">
 
-<h1>Cam<span>Scripter</span> Hub</h1>
-<p>Select your game and copy the script instantly.</p>
+<div class="header">
+<img src="https://yt3.googleusercontent.com/qey-alATC2cBWoXPL3BkWuRyPcwJUz0lHfRufP0Dw8SuxlFtt0_N0-n6n1FpsbJjEq5rpNB-=s160-c-k-c0x00ffffff-no-rj">
+<h1>CamScripter Hub</h1>
+</div>
 
 <div class="cards">
-  <a class="card mm2" href="mm2.html">
-    <h2>🔪 MM2</h2>
-    <p>Fast & lightweight Murder Mystery 2 script</p>
-  </a>
+<a class="card mm2" href="mm2.html">
+<h2>MM2</h2>
+<p>Murder Mystery 2 Script</p>
+</a>
 
-  <a class="card adopt" href="adoptme.html">
-    <h2>🐶 Adopt Me</h2>
-    <p>Safe farming & trading script</p>
-  </a>
+<a class="card adopt" href="adopt.html">
+<h2>Adopt Me</h2>
+<p>Adopt Me Best Script</p>
+</a>
 
-  <a class="card ps99" href="ps99.html">
-    <h2>🐾 PS99</h2>
-    <p>Optimized Pet Simulator 99 grinding script</p>
-  </a>
+<a class="card ps99" href="ps99.html">
+<h2>Pet Simulator 99</h2>
+<p>PS99 Powerful Script</p>
+</a>
 </div>
 
-</div>
 </body>
 </html>
