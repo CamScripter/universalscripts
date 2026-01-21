@@ -19,8 +19,21 @@ body {
   opacity: 0;
   animation: fadeIn 3s ease forwards;
 }
-@keyframes fadeIn {
-  to { opacity: 1; }
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* BACK BUTTON */
+.back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  background: #111;
+  border: 1px solid #22c55e;
+  color: #22c55e;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 20;
 }
 
 /* CONTAINER */
@@ -33,35 +46,6 @@ body {
   text-align: center;
 }
 
-/* YOUTUBE */
-.youtube-link {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  z-index: 10;
-}
-.youtube-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid #22c55e;
-}
-.youtube-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.youtube-name {
-  color: #22c55e;
-  font-weight: 700;
-  font-size: 14px;
-}
-
 /* BADGE */
 .badge {
   background: #052e16;
@@ -72,22 +56,15 @@ body {
   margin-bottom: 18px;
 }
 
-/* TEXT */
-h1 {
-  font-size: clamp(26px, 6vw, 46px);
-  font-weight: 800;
-  margin-bottom: 10px;
-}
+h1 { font-size: clamp(26px, 6vw, 46px); font-weight: 800; }
 h1 span { color: #22c55e; }
 
 p {
   max-width: 700px;
   color: #9ca3af;
-  font-size: clamp(14px, 4vw, 16px);
   margin-bottom: 26px;
 }
 
-/* SCRIPT BOX */
 .script-box {
   width: 100%;
   max-width: 760px;
@@ -95,19 +72,6 @@ p {
   border: 1px solid #0f172a;
   border-radius: 16px;
   padding: 16px;
-  box-sizing: border-box;
-}
-
-.script-header {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.script-title {
-  font-weight: 600;
-  font-size: 14px;
 }
 
 #copyBtn {
@@ -118,12 +82,6 @@ p {
   padding: 14px;
   border-radius: 12px;
   font-weight: 800;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.script-scroll {
-  overflow-x: auto;
 }
 
 pre {
@@ -135,7 +93,6 @@ pre {
   white-space: pre;
 }
 
-/* COPIED */
 #copied {
   margin-top: 10px;
   color: #22c55e;
@@ -143,13 +100,10 @@ pre {
   display: none;
 }
 
-/* STATS */
 .stats {
   margin-top: 32px;
   display: flex;
   gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 .stat {
   background: #111;
@@ -158,58 +112,24 @@ pre {
   padding: 16px 22px;
   min-width: 140px;
 }
-.stat-value {
-  color: #22c55e;
-  font-size: 24px;
-  font-weight: 800;
-}
-.stat-label {
-  color: #9ca3af;
-  font-size: 13px;
-}
-
-/* DESKTOP */
-@media (min-width: 768px) {
-  .script-header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  #copyBtn {
-    width: auto;
-    padding: 10px 18px;
-  }
-  pre {
-    font-size: 14px;
-  }
-}
+.stat-value { color: #22c55e; font-size: 24px; font-weight: 800; }
+.stat-label { color: #9ca3af; }
 </style>
 </head>
 
 <body>
+
+<a href="index.html" class="back-btn">← Hub</a>
+
 <div class="container">
-
-<a class="youtube-link" href="https://www.youtube.com/channel/UCEoYs6dYZCF2cc1sQF63i1g" target="_blank">
-  <div class="youtube-avatar">
-    <img src="https://yt3.googleusercontent.com/qey-alATC2cBWoXPL3BkWuRyPcwJUz0lHfRufP0Dw8SuxlFtt0_N0-n6n1FpsbJjEq5rpNB-=s160-c-k-c0x00ffffff-no-rj">
-  </div>
-  <span class="youtube-name">CamScripter</span>
-</a>
-
 <div class="badge">● Online • Keyless • MM2</div>
 
 <h1>Murder Mystery 2 <span>Script</span></h1>
-<p>Fast, stable and lightweight MM2 script built for smooth gameplay and reliability.</p>
+<p>Fast, stable and lightweight MM2 script.</p>
 
 <div class="script-box">
-  <div class="script-header">
-    <span class="script-title">🔪 MM2 Script</span>
-    <button id="copyBtn">Copy Script</button>
-  </div>
-
-  <div class="script-scroll">
+<button id="copyBtn">Copy Script</button>
 <pre id="scriptText">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/HorizonHubV3/refs/heads/main/MurderMystery2"))()</pre>
-  </div>
 </div>
 
 <div id="copied">✓ Script copied</div>
@@ -224,23 +144,21 @@ pre {
     <div class="stat-label">Users</div>
   </div>
 </div>
-
 </div>
 
 <script>
-const btn = document.getElementById("copyBtn");
-const text = document.getElementById("scriptText");
-const copied = document.getElementById("copied");
-
-btn.onclick = () => {
-  navigator.clipboard.writeText(text.textContent).then(() => {
-    btn.textContent = "Copied ✓";
-    copied.style.display = "block";
-    setTimeout(() => {
-      btn.textContent = "Copy Script";
-      copied.style.display = "none";
-    }, 2000);
-  });
+const btn=document.getElementById("copyBtn");
+const txt=document.getElementById("scriptText");
+const copied=document.getElementById("copied");
+btn.onclick=()=>{
+navigator.clipboard.writeText(txt.textContent).then(()=>{
+btn.textContent="Copied ✓";
+copied.style.display="block";
+setTimeout(()=>{
+btn.textContent="Copy Script";
+copied.style.display="none";
+},2000);
+});
 };
 </script>
 
