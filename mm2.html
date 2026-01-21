@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MM2 Script | CamScripter</title>
+<title>CamScripter – MM2 Script</title>
 
 <style>
 html, body {
@@ -14,57 +14,35 @@ html, body {
   color: #e5e7eb;
 }
 
-/* INTRO */
+/* SMOOTH INTRO */
 body {
   opacity: 0;
   animation: fadeIn 3s ease forwards;
 }
-@keyframes fadeIn { to { opacity: 1; } }
-
-/* BACK BUTTON */
-.back-btn {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  background: #111;
-  border: 1px solid #22c55e;
-  color: #22c55e;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-weight: 700;
-  text-decoration: none;
-  z-index: 20;
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
-/* CONTAINER */
 .container {
   min-height: 100vh;
-  padding: 90px 16px 40px;
+  padding: 80px 16px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-/* BADGE */
-.badge {
-  background: #052e16;
+/* BACK BUTTON */
+.back-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
   color: #22c55e;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 12px;
-  margin-bottom: 18px;
+  text-decoration: none;
+  font-weight: 700;
 }
 
-h1 { font-size: clamp(26px, 6vw, 46px); font-weight: 800; }
-h1 span { color: #22c55e; }
-
-p {
-  max-width: 700px;
-  color: #9ca3af;
-  margin-bottom: 26px;
-}
-
+/* SCRIPT BOX */
 .script-box {
   width: 100%;
   max-width: 760px;
@@ -74,36 +52,54 @@ p {
   padding: 16px;
 }
 
+.script-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
 #copyBtn {
-  width: 100%;
   background: #22c55e;
   color: #022c22;
   border: none;
-  padding: 14px;
-  border-radius: 12px;
+  padding: 10px 18px;
+  border-radius: 10px;
   font-weight: 800;
+  cursor: pointer;
 }
 
-pre {
+/* 👉 SADECE SAĞ-SOL SCROLL */
+.script-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.script-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.script-scroll::-webkit-scrollbar-thumb {
+  background: #22c55e;
+  border-radius: 6px;
+}
+
+pre#scriptText {
+  margin: 0;
   background: #000;
   padding: 16px;
   border-radius: 12px;
-  font-size: 13px;
-  min-width: 520px;
   white-space: pre;
+  min-width: 520px;
+  font-size: 13px;
 }
 
-#copied {
-  margin-top: 10px;
-  color: #22c55e;
-  font-weight: 600;
-  display: none;
-}
-
+/* STATS */
 .stats {
   margin-top: 32px;
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .stat {
   background: #111;
@@ -112,27 +108,36 @@ pre {
   padding: 16px 22px;
   min-width: 140px;
 }
-.stat-value { color: #22c55e; font-size: 24px; font-weight: 800; }
-.stat-label { color: #9ca3af; }
+.stat-value {
+  color: #22c55e;
+  font-size: 24px;
+  font-weight: 800;
+}
+.stat-label {
+  color: #9ca3af;
+  font-size: 13px;
+}
 </style>
 </head>
 
 <body>
-
-<a href="index.html" class="back-btn">← Hub</a>
+<a href="index.html" class="back-btn">← Back</a>
 
 <div class="container">
-<div class="badge">● Online • Keyless • MM2</div>
 
-<h1>Murder Mystery 2 <span>Script</span></h1>
-<p>Fast, stable and lightweight MM2 script.</p>
+<h1>MM2 Script</h1>
+<p>Fast, stable and keyless MM2 experience.</p>
 
 <div class="script-box">
-<button id="copyBtn">Copy Script</button>
-<pre id="scriptText">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/HorizonHubV3/refs/heads/main/MurderMystery2"))()</pre>
-</div>
+  <div class="script-header">
+    <span>🔪 MM2 Script</span>
+    <button id="copyBtn">Copy Script</button>
+  </div>
 
-<div id="copied">✓ Script copied</div>
+  <div class="script-scroll">
+<pre id="scriptText">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/HorizonHubV3/refs/heads/main/MurderMystery2"))()</pre>
+  </div>
+</div>
 
 <div class="stats">
   <div class="stat">
@@ -144,21 +149,17 @@ pre {
     <div class="stat-label">Users</div>
   </div>
 </div>
+
 </div>
 
 <script>
-const btn=document.getElementById("copyBtn");
-const txt=document.getElementById("scriptText");
-const copied=document.getElementById("copied");
-btn.onclick=()=>{
-navigator.clipboard.writeText(txt.textContent).then(()=>{
-btn.textContent="Copied ✓";
-copied.style.display="block";
-setTimeout(()=>{
-btn.textContent="Copy Script";
-copied.style.display="none";
-},2000);
-});
+const btn = document.getElementById("copyBtn");
+const text = document.getElementById("scriptText");
+
+btn.onclick = () => {
+  navigator.clipboard.writeText(text.textContent);
+  btn.textContent = "Copied ✓";
+  setTimeout(() => btn.textContent = "Copy Script", 2000);
 };
 </script>
 
