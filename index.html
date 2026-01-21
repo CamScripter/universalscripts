@@ -22,6 +22,11 @@ body {
 }
 @keyframes fadeIn { to { opacity: 1; } }
 
+:root {
+  --accent: #22c55e;
+  --accent-dark: #022c22;
+}
+
 .container {
   min-height: 100vh;
   padding: 80px 16px 40px;
@@ -29,12 +34,6 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
-
-/* THEME */
-:root {
-  --accent: #22c55e;
-  --accent-dark: #022c22;
 }
 
 /* YOUTUBE */
@@ -69,16 +68,9 @@ body {
 h1 {
   font-size: clamp(26px, 6vw, 46px);
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: 24px;
 }
 h1 span { color: var(--accent); }
-
-p {
-  max-width: 720px;
-  color: #9ca3af;
-  font-size: clamp(14px, 4vw, 16px);
-  margin-bottom: 28px;
-}
 
 /* SCRIPT BOX */
 .script-box {
@@ -96,9 +88,10 @@ p {
   gap: 10px;
   margin-bottom: 12px;
 }
+
 .script-title {
-  font-weight: 600;
   color: var(--accent);
+  font-weight: 700;
 }
 
 #copyBtn {
@@ -111,7 +104,9 @@ p {
   cursor: pointer;
 }
 
-.script-scroll { overflow-x: auto; }
+.script-scroll {
+  overflow-x: auto;
+}
 pre {
   background: #000;
   padding: 16px;
@@ -200,14 +195,14 @@ pre {
   <span class="youtube-name">CamScripter</span>
 </a>
 
-<h1><span id="gameTitle">MM2</span> Script Hub</h1>
-<p id="gameDesc">A lightweight MM2 script built for speed and stability.</p>
+<h1><span id="gameTitle">MM2</span> Script</h1>
 
 <div class="script-box">
   <div class="script-header">
     <span class="script-title" id="scriptLabel">🔪 MM2 Script</span>
     <button id="copyBtn">Copy Script</button>
   </div>
+
   <div class="script-scroll">
 <pre id="scriptText">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/HorizonHubV3/refs/heads/main/MurderMystery2"))()</pre>
   </div>
@@ -215,7 +210,6 @@ pre {
 
 <div id="copiedText">✓ Script copied</div>
 
-<!-- SABİT STATLAR -->
 <div class="stats">
   <div class="stat">
     <div class="stat-value">10K+</div>
@@ -239,7 +233,6 @@ pre {
 const games = {
   mm2: {
     title: "MM2",
-    desc: "A lightweight MM2 script built for speed and stability.",
     label: "🔪 MM2 Script",
     color: "#22c55e",
     dark: "#022c22",
@@ -247,28 +240,23 @@ const games = {
   },
   adopt: {
     title: "Adopt Me",
-    desc: "A clean and powerful Adopt Me script.",
     label: "🐶 Adopt Me Script",
     color: "#ec4899",
     dark: "#1f0a14",
-    script: `-- Adopt Me Script
-loadstring(game:HttpGet("YOUR_ADOPT_ME_SCRIPT_URL"))()`
+    script: `loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/CamHub/refs/heads/main/AdoptMe"))()`
   },
   ps99: {
     title: "PS99",
-    desc: "Optimized Pet Simulator 99 script.",
     label: "💎 PS99 Script",
     color: "#3b82f6",
     dark: "#020617",
-    script: `-- PS99 Script
-loadstring(game:HttpGet("YOUR_PS99_SCRIPT_URL"))()`
+    script: `loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/BananaHub0/refs/heads/main/PetSimulator99V2"))()`
   }
 };
 
 function setGame(key, btn) {
   const g = games[key];
   document.getElementById("gameTitle").textContent = g.title;
-  document.getElementById("gameDesc").textContent = g.desc;
   document.getElementById("scriptLabel").textContent = g.label;
   document.getElementById("scriptText").textContent = g.script;
 
