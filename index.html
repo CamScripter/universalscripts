@@ -6,187 +6,106 @@
 <title>CamScripter Hub</title>
 
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  background: #000;
-  font-family: Inter, Arial, sans-serif;
-  color: #e5e7eb;
-  overflow-x: hidden;
+html,body{
+  margin:0;
+  background:#000;
+  font-family:Inter,Arial,sans-serif;
+  color:#e5e7eb;
+  scroll-behavior:smooth;
+}
+body{opacity:0;animation:fadeIn 3s forwards;}
+@keyframes fadeIn{to{opacity:1;}}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:90px 16px 40px;
+  text-align:center;
 }
 
-/* INTRO */
-body {
-  opacity: 0;
-  animation: fadeIn 3s ease forwards;
-}
-@keyframes fadeIn { to { opacity: 1; } }
-
-:root {
-  --accent: #22c55e;
-  --accent-dark: #022c22;
+.section{
+  margin-bottom:100px;
 }
 
-.container {
-  min-height: 100vh;
-  padding: 80px 16px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+h1{
+  font-size:clamp(26px,6vw,42px);
+  margin-bottom:8px;
+}
+p{
+  color:#9ca3af;
+  max-width:700px;
+  margin:0 auto 24px;
 }
 
-/* YOUTUBE */
-.youtube-link {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  text-decoration: none;
-}
-.youtube-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid var(--accent);
-}
-.youtube-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.youtube-name {
-  color: var(--accent);
-  font-weight: 700;
-  font-size: 14px;
+.script-box{
+  background:#111;
+  border:1px solid #0f172a;
+  border-radius:16px;
+  padding:16px;
 }
 
-/* TITLE */
-h1 {
-  font-size: clamp(26px, 6vw, 46px);
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-h1 span { color: var(--accent); }
-
-/* SCRIPT PRAISE */
-.script-desc {
-  max-width: 720px;
-  color: #9ca3af;
-  font-size: clamp(14px, 4vw, 16px);
-  margin-bottom: 22px;
+.script-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
+  flex-wrap:wrap;
 }
 
-/* SCRIPT BOX */
-.script-box {
-  width: 100%;
-  max-width: 760px;
-  background: #111;
-  border: 1px solid #0f172a;
-  border-radius: 16px;
-  padding: 16px;
+button{
+  border:none;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:800;
+  cursor:pointer;
 }
 
-.script-header {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 12px;
+pre{
+  background:#000;
+  padding:16px;
+  border-radius:12px;
+  font-size:13px;
+  overflow-x:auto;
+  white-space:pre;
 }
 
-.script-title {
-  color: var(--accent);
-  font-weight: 700;
+.stats{
+  margin-top:24px;
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.stat{
+  background:#111;
+  border:1px solid #0f172a;
+  border-radius:14px;
+  padding:14px 22px;
+}
+.stat-value{
+  font-size:22px;
+  font-weight:800;
+}
+.stat-label{
+  color:#9ca3af;
+  font-size:13px;
 }
 
-#copyBtn {
-  background: var(--accent);
-  color: var(--accent-dark);
-  border: none;
-  padding: 14px;
-  border-radius: 12px;
-  font-weight: 800;
-  cursor: pointer;
-}
+/* COLORS */
+.mm2 span,.mm2 button,.mm2 .stat-value{color:#22c55e}
+.mm2 button{background:#22c55e;color:#022c22}
 
-.script-scroll { overflow-x: auto; }
-pre {
-  background: #000;
-  padding: 16px;
-  border-radius: 12px;
-  font-size: 13px;
-  min-width: 520px;
-  white-space: pre;
-}
+.adopt span,.adopt button,.adopt .stat-value{color:#ec4899}
+.adopt button{background:#ec4899;color:#2b0a1a}
 
-#copiedText {
-  margin-top: 10px;
-  color: var(--accent);
-  font-weight: 600;
-  display: none;
-}
+.ps99 span,.ps99 button,.ps99 .stat-value{color:#3b82f6}
+.ps99 button{background:#3b82f6;color:#020b1c}
 
-/* STATS */
-.stats {
-  margin-top: 28px;
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.stat {
-  background: #111;
-  border: 1px solid #0f172a;
-  border-radius: 14px;
-  padding: 16px 22px;
-  min-width: 140px;
-}
-.stat-value {
-  color: var(--accent);
-  font-size: 24px;
-  font-weight: 800;
-}
-.stat-label {
-  color: #9ca3af;
-  font-size: 13px;
-}
-
-/* NAV */
-.game-links {
-  margin-top: 36px;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.game-links button {
-  background: #111;
-  border: 1px solid #0f172a;
-  color: #e5e7eb;
-  padding: 12px 20px;
-  border-radius: 999px;
-  font-weight: 700;
-  cursor: pointer;
-}
-.game-links button.active {
-  background: var(--accent);
-  color: var(--accent-dark);
-  border-color: var(--accent);
-}
-
-/* DESKTOP */
-@media (min-width: 768px) {
-  .script-header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  #copyBtn {
-    padding: 10px 18px;
-  }
+.copy-msg{
+  margin-top:10px;
+  display:none;
+  font-weight:700;
 }
 </style>
 </head>
@@ -194,107 +113,81 @@ pre {
 <body>
 <div class="container">
 
-<a class="youtube-link" href="https://www.youtube.com/channel/UCEoYs6dYZCF2cc1sQF63i1g" target="_blank">
-  <div class="youtube-avatar">
-    <img src="https://yt3.googleusercontent.com/qey-alATC2cBWoXPL3BkWuRyPcwJUz0lHfRufP0Dw8SuxlFtt0_N0-n6n1FpsbJjEq5rpNB-=s160-c-k-c0x00ffffff-no-rj">
-  </div>
-  <span class="youtube-name">CamScripter</span>
-</a>
-
-<h1><span id="gameTitle">MM2</span> Script</h1>
-<p class="script-desc" id="gameDesc">
-A fast, stable and undetected MM2 script built for smooth gameplay and long sessions.
-</p>
+<!-- MM2 -->
+<div class="section mm2" id="mm2">
+<h1>MM2 <span>Script</span></h1>
+<p>Lightweight, fast and stable MM2 script built for real hub experience.</p>
 
 <div class="script-box">
-  <div class="script-header">
-    <span class="script-title" id="scriptLabel">🔪 MM2 Script</span>
-    <button id="copyBtn">Copy Script</button>
-  </div>
-
-  <div class="script-scroll">
-<pre id="scriptText">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/HorizonHubV3/refs/heads/main/MurderMystery2"))()</pre>
-  </div>
+<div class="script-header">
+<span>🔪 MM2 Script</span>
+<button onclick="copy('mm2txt','mm2msg',this)">Copy</button>
+</div>
+<pre id="mm2txt">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/HorizonHubV3/refs/heads/main/MurderMystery2"))()</pre>
 </div>
 
-<div id="copiedText">✓ Script copied</div>
+<div class="copy-msg" id="mm2msg">✓ Copied</div>
 
-<!-- STATS -->
 <div class="stats">
-  <div class="stat">
-    <div class="stat-value">10K+</div>
-    <div class="stat-label">Executions</div>
-  </div>
-  <div class="stat">
-    <div class="stat-value">100+</div>
-    <div class="stat-label">Users</div>
-  </div>
+<div class="stat"><div class="stat-value">10K+</div><div class="stat-label">Executions</div></div>
+<div class="stat"><div class="stat-value">100+</div><div class="stat-label">Users</div></div>
+</div>
 </div>
 
-<div class="game-links">
-  <button class="active" onclick="setGame('mm2', this)">MM2</button>
-  <button onclick="setGame('adopt', this)">Adopt Me</button>
-  <button onclick="setGame('ps99', this)">PS99</button>
+<!-- ADOPT ME -->
+<div class="section adopt" id="adoptme">
+<h1>Adopt Me <span>Script</span></h1>
+<p>Clean UI, smooth farming and safe functions for Adopt Me players.</p>
+
+<div class="script-box">
+<div class="script-header">
+<span>🐶 Adopt Me Script</span>
+<button onclick="copy('adopttxt','adoptmsg',this)">Copy</button>
+</div>
+<pre id="adopttxt">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/CamHub/refs/heads/main/AdoptMe"))()</pre>
+</div>
+
+<div class="copy-msg" id="adoptmsg">✓ Copied</div>
+
+<div class="stats">
+<div class="stat"><div class="stat-value">10K+</div><div class="stat-label">Executions</div></div>
+<div class="stat"><div class="stat-value">100+</div><div class="stat-label">Users</div></div>
+</div>
+</div>
+
+<!-- PS99 -->
+<div class="section ps99" id="ps99">
+<h1>PS99 <span>Script</span></h1>
+<p>Optimized farming, fast execution and stable performance in PS99.</p>
+
+<div class="script-box">
+<div class="script-header">
+<span>🐾 PS99 Script</span>
+<button onclick="copy('ps99txt','ps99msg',this)">Copy</button>
+</div>
+<pre id="ps99txt">loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/BananaHub0/refs/heads/main/PetSimulator99V2"))()</pre>
+</div>
+
+<div class="copy-msg" id="ps99msg">✓ Copied</div>
+
+<div class="stats">
+<div class="stat"><div class="stat-value">10K+</div><div class="stat-label">Executions</div></div>
+<div class="stat"><div class="stat-value">100+</div><div class="stat-label">Users</div></div>
+</div>
 </div>
 
 </div>
 
 <script>
-const games = {
-  mm2: {
-    title: "MM2",
-    desc: "A fast, stable and undetected MM2 script built for smooth gameplay and long sessions.",
-    label: "🔪 MM2 Script",
-    color: "#22c55e",
-    dark: "#022c22",
-    script: `loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/HorizonHubV3/refs/heads/main/MurderMystery2"))()`
-  },
-  adopt: {
-    title: "Adopt Me",
-    desc: "A powerful Adopt Me script with smooth auto features, safe execution and clean UI.",
-    label: "🐶 Adopt Me Script",
-    color: "#ec4899",
-    dark: "#1f0a14",
-    script: `loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/CamHub/refs/heads/main/AdoptMe"))()`
-  },
-  ps99: {
-    title: "PS99",
-    desc: "An optimized PS99 script focused on fast farming, efficiency and low detection risk.",
-    label: "💎 PS99 Script",
-    color: "#3b82f6",
-    dark: "#020617",
-    script: `loadstring(game:HttpGet("https://raw.githubusercontent.com/CamScripter/BananaHub0/refs/heads/main/PetSimulator99V2"))()`
-  }
-};
-
-function setGame(key, btn) {
-  const g = games[key];
-  document.getElementById("gameTitle").textContent = g.title;
-  document.getElementById("gameDesc").textContent = g.desc;
-  document.getElementById("scriptLabel").textContent = g.label;
-  document.getElementById("scriptText").textContent = g.script;
-
-  document.documentElement.style.setProperty("--accent", g.color);
-  document.documentElement.style.setProperty("--accent-dark", g.dark);
-
-  document.querySelectorAll(".game-links button").forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
+function copy(id,msg,btn){
+navigator.clipboard.writeText(document.getElementById(id).textContent);
+document.getElementById(msg).style.display="block";
+btn.textContent="Copied ✓";
+setTimeout(()=>{
+document.getElementById(msg).style.display="none";
+btn.textContent="Copy";
+},2000);
 }
-
-const btn = document.getElementById("copyBtn");
-const text = document.getElementById("scriptText");
-const copied = document.getElementById("copiedText");
-
-btn.onclick = () => {
-  navigator.clipboard.writeText(text.textContent).then(() => {
-    btn.textContent = "Copied ✓";
-    copied.style.display = "block";
-    setTimeout(() => {
-      btn.textContent = "Copy Script";
-      copied.style.display = "none";
-    }, 2000);
-  });
-};
 </script>
 
 </body>
