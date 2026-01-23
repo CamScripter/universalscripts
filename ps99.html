@@ -54,13 +54,11 @@ padding:16px;
 margin-top:20px
 }
 
-/* SAĞ-SOL SCROLL */
 .script-scroll{
 overflow-x:auto;
 overflow-y:hidden;
 }
 
-/* SCROLLBAR */
 .script-scroll::-webkit-scrollbar{
 height:8px
 }
@@ -112,6 +110,16 @@ border:1px solid #1f2937
 .stat-value{color:#3b82f6;font-size:24px;font-weight:800}
 .stat-label{color:#9ca3af;font-size:13px}
 </style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V65HF7P1XY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V65HF7P1XY');
+</script>
+
 </head>
 
 <body>
@@ -153,10 +161,18 @@ function copyScript(){
   navigator.clipboard.writeText(
     document.getElementById("script").innerText
   );
+
+  // 📊 Analytics Event
+  gtag('event','copy_script',{
+    event_category:'ps99',
+    event_label:'PS99 Script Copy'
+  });
+
   const c = document.getElementById("copied");
   c.style.display="block";
   setTimeout(()=>{c.style.display="none"},2000);
 }
 </script>
+
 </body>
 </html>
