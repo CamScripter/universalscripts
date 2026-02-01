@@ -1,1 +1,232 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CamScripter Hub</title><style>body{ margin:0; font-family:Inter,Arial; color:#fff; overflow-x:hidden; opacity:0; animation:fade 1.5s forwards; position:relative;}@keyframes fade{to{opacity:1}}#stars{ position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; overflow:hidden; background:#000;}.star{ position:absolute; border-radius:50%; background:white; opacity:0.8; animation:fall linear infinite, twinkle 2s infinite alternate;}@keyframes fall{ 0%{ transform: translateY(-10px); } 100%{ transform: translateY(110vh); }}@keyframes twinkle{ 0%{ opacity:0.2; } 50%{ opacity:0.9; } 100%{ opacity:0.2; }}.container{ max-width:1200px; margin:auto; padding:40px 16px; text-align:center; position:relative; z-index:1; }.header{ display:flex; justify-content:center; align-items:center; gap:16px; margin-bottom:28px;}.header img{ width:72px; height:72px; border-radius:50%; border:3px solid #ef4444; cursor:pointer; transition:.3s;}.header img:hover{transform:scale(1.08);}h1 span{color:#ef4444}.subtitle{ color:#9ca3af; max-width:700px; margin:0 auto 40px; font-size:15px; line-height:1.6;}.cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px;}.card{ background:#0b0b0b; border:1px solid #1f2937; border-radius:20px; padding:26px; text-align:left; cursor:pointer; transition:.3s;}.card:hover{ transform:translateY(-8px); box-shadow:0 10px 30px rgba(0,0,0,.6);}.card h2{margin:0 0 8px;font-size:22px;}.card p{color:#9ca3af;font-size:14px;line-height:1.6;}.tag{ display:inline-block; margin-top:14px; font-size:12px; font-weight:700; padding:6px 12px; border-radius:999px; background:#111;}.mm2 h2{color:#22c55e}.mm2 .tag{color:#22c55e;border:1px solid #22c55e}.adopt h2{color:#ec4899}.adopt .tag{color:#ec4899;border:1px solid #ec4899}.ps99 h2{color:#3b82f6}.ps99 .tag{color:#3b82f6;border:1px solid #3b82f6}.blox h2{color:#f97316}.blox .tag{color:#f97316;border:1px solid #f97316}.stats{ display:flex; justify-content:center; gap:22px; margin-top:60px; flex-wrap:wrap;}.stat{ background:#0b0b0b; padding:20px 28px; border-radius:18px; border:1px solid #1f2937; min-width:150px;}.stat-value{ font-size:28px; font-weight:900; color:#ef4444;}.stat-label{ font-size:13px; color:#9ca3af;}.footer{ margin-top:70px; font-size:13px; color:#6b7280;}</style><script async src="https://www.googletagmanager.com/gtag/js?id=G-V65HF7P1XY"></script><script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-V65HF7P1XY');</script></head><body><div id="stars"></div><div class="container"><div class="header"><a href="https://www.youtube.com/@CamScripterr" target="_blank"><img src="https://yt3.googleusercontent.com/qey-alATC2cBWoXPL3BkWuRyPcwJUz0lHfRufP0Dw8SuxlFtt0_N0-n6n1FpsbJjEq5rpNB-=s160-c-k-c0x00ffffff-no-rj"></a><h1>Cam<span>Scripter</span> Hub</h1></div><div class="subtitle">Premium Roblox scripts built for performance, safety and clean UI.<br>No skids. No junk. Just real hub quality.</div><div class="cards"><div class="card mm2" onclick="gtag('event','card_click',{event_category:'game',event_label:'MM2'}); location.href='mm2.html'"><h2>🔪 Murder Mystery 2</h2><p>High-performance MM2 automation with smooth execution.</p><span class="tag">MM2 • Godly Spawner • Trade Scam</span></div><div class="card adopt" onclick="gtag('event','card_click',{event_category:'game',event_label:'Adopt Me'}); location.href='adoptme.html'"><h2>🐶 Adopt Me</h2><p>Clean and safe trade tools for Adopt Me.</p><span class="tag">Adopt Me • Pet Spawner • Clean UI</span></div><div class="card ps99" onclick="gtag('event','card_click',{event_category:'game',event_label:'Blade Ball'}); location.href='bladeball.html'"><h2>⚔️ Blade Ball</h2><p>Fast, smooth and undetected Blade Ball automation.</p><span class="tag">Blade Ball • Auto Parry • Trade Freeze</span></div><div class="card blox" onclick="gtag('event','card_click',{event_category:'game',event_label:'Blox Fruits'}); location.href='bloxfruits.html'"><h2>🐉 Blox Fruits</h2><p>Powerful Blox Fruits script.</p><span class="tag">Blox Fruits • Auto Farm • Trade Freeze</span></div></div><div class="footer">© 2026 CamScripter — Real Hub Experience</div></div><script>const starCount = 150;const starsContainer = document.getElementById('stars');for(let i=0;i<starCount;i++){ const star = document.createElement('div'); star.className = 'star'; star.style.left = Math.random()*100+'vw'; star.style.top = Math.random()*100+'vh'; const size = Math.random()*3 + 1; star.style.width = size+'px'; star.style.height = size+'px'; star.style.opacity = Math.random()*0.8 + 0.2; const speed = Math.random()*7 + 3; star.style.animationDuration = speed+'s'; star.style.animationDelay = Math.random()*5+'s'; starsContainer.appendChild(star);}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CamScripter Hub</title>
+
+<style>
+/* GENEL STİLLER */
+body{
+  margin:0;
+  font-family:Inter,Arial;
+  color:#fff;
+  overflow-x:hidden;
+  opacity:0;
+  animation:fade 1.5s forwards;
+  position:relative;
+}
+
+/* SAYFA FADE-IN */
+@keyframes fade{to{opacity:1}}
+
+/* ARKA PLAN YILDIZLARI */
+#stars{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  overflow:hidden;
+  background:#000;
+}
+.star{
+  position:absolute;
+  border-radius:50%;
+  background:white;
+  opacity:0.8;
+  animation:fall linear infinite, twinkle 2s infinite alternate;
+}
+@keyframes fall{
+  0%{ transform: translateY(-10px); }
+  100%{ transform: translateY(110vh); }
+}
+@keyframes twinkle{
+  0%{ opacity:0.2; }
+  50%{ opacity:0.9; }
+  100%{ opacity:0.2; }
+}
+
+/* CONTAINER */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 16px;
+  text-align:center;
+  position:relative;
+  z-index:1;
+}
+
+/* HEADER */
+.header{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:16px;
+  margin-bottom:28px;
+}
+.header img{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  border:3px solid #ef4444;
+  cursor:pointer;
+  transition:.3s;
+}
+.header img:hover{transform:scale(1.08);}
+h1 span{color:#ef4444}
+
+/* SUBTITLE */
+.subtitle{
+  color:#9ca3af;
+  max-width:700px;
+  margin:0 auto 40px;
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+.card{
+  background:#0b0b0b;
+  border:1px solid #1f2937;
+  border-radius:20px;
+  padding:26px;
+  text-align:left;
+  cursor:pointer;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 30px rgba(0,0,0,.6);
+}
+.card h2{margin:0 0 8px;font-size:22px;}
+.card p{color:#9ca3af;font-size:14px;line-height:1.6;}
+.tag{
+  display:inline-block;
+  margin-top:14px;
+  font-size:12px;
+  font-weight:700;
+  padding:6px 12px;
+  border-radius:999px;
+  background:#111;
+}
+
+/* COLORS */
+.mm2 h2{color:#22c55e}
+.mm2 .tag{color:#22c55e;border:1px solid #22c55e}
+
+.adopt h2{color:#ec4899}
+.adopt .tag{color:#ec4899;border:1px solid #ec4899}
+
+.blade h2{color:#3b82f6}
+.blade .tag{color:#3b82f6;border:1px solid #3b82f6}
+
+.blox h2{color:#f97316}
+.blox .tag{color:#f97316;border:1px solid #f97316}
+
+.tsunami h2{color:#facc15}
+.tsunami .tag{color:#facc15;border:1px solid #facc15}
+
+/* FOOTER */
+.footer{
+  margin-top:70px;
+  font-size:13px;
+  color:#6b7280;
+}
+</style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V65HF7P1XY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V65HF7P1XY');
+</script>
+
+</head>
+
+<body>
+<div id="stars"></div>
+
+<div class="container">
+
+<div class="header">
+  <a href="https://www.youtube.com/@CamScripterr" target="_blank">
+    <img src="https://yt3.googleusercontent.com/qey-alATC2cBWoXPL3BkWuRyPcwJUz0lHfRufP0Dw8SuxlFtt0_N0-n6n1FpsbJjEq5rpNB-=s160-c-k-c0x00ffffff-no-rj">
+  </a>
+  <h1>Cam<span>Scripter</span> Hub</h1>
+</div>
+
+<div class="subtitle">
+Premium Roblox scripts built for performance, safety and clean UI.<br>
+No skids. No junk. Just real hub quality.
+</div>
+
+<div class="cards">
+
+  <div class="card mm2" onclick="location.href='mm2.html'">
+    <h2>🔪 Murder Mystery 2</h2>
+    <p>High-performance MM2 automation with smooth execution.</p>
+    <span class="tag">MM2 • Stable • Fast</span>
+  </div>
+
+  <div class="card adopt" onclick="location.href='adoptme.html'">
+    <h2>🐶 Adopt Me</h2>
+    <p>Clean and safe farming tools for Adopt Me.</p>
+    <span class="tag">Adopt Me • Safe • Clean UI</span>
+  </div>
+
+  <div class="card blade" onclick="location.href='bladeball.html'">
+    <h2>⚔️ Blade Ball</h2>
+    <p>Fast reactions and powerful automation for Blade Ball.</p>
+    <span class="tag">Blade Ball • Auto • Precision</span>
+  </div>
+
+  <div class="card blox" onclick="location.href='bloxfruits.html'">
+    <h2>🐉 Blox Fruits</h2>
+    <p>Powerful Blox Fruits script.</p>
+    <span class="tag">Blox Fruits • OP • Orange</span>
+  </div>
+
+  <div class="card tsunami" onclick="location.href='escape-tsunami.html'">
+    <h2>🌊 Escape Tsunami for Brainrots</h2>
+    <p>Fast and smooth automation for Escape Tsunami for Brainrots.</p>
+    <span class="tag">Escape Tsunami • Fast • Yellow</span>
+  </div>
+
+</div>
+
+<div class="footer">
+© 2026 CamScripter — Real Hub Experience
+</div>
+
+</div>
+
+<script>
+const starCount = 150;
+const starsContainer = document.getElementById('stars');
+
+for(let i=0;i<starCount;i++){
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.style.left = Math.random()*100+'vw';
+  star.style.top = Math.random()*100+'vh';
+  const size = Math.random()*3 + 1;
+  star.style.width = size+'px';
+  star.style.height = size+'px';
+  const speed = Math.random()*7 + 3;
+  star.style.animationDuration = speed+'s';
+  star.style.animationDelay = Math.random()*5+'s';
+  starsContainer.appendChild(star);
+}
+</script>
+
+</body>
+</html>
